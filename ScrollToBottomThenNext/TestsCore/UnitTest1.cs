@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using Lib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -10,7 +11,7 @@ namespace TestsCore
         [TestMethod]
         public void TestMethod1()
         {
-            ITimeline timeline = new Timeline(1000);
+            ITimeline timeline = new Timeline(1000, () => { Console.WriteLine(DateTime.Now); });
 
             ITextChunk textChunk = new TextChunk();
             textChunk.AddText(@"aaa");
